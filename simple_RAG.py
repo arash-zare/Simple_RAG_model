@@ -46,7 +46,7 @@ collection.add(
 
 
 
-user_query = "What did Arash do at Derak Cloud?"
+user_query = "کدام دانشگاه تحصیل کرده؟"
 
 results = collection.query(
     query_texts=[user_query],

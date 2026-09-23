@@ -1,4 +1,14 @@
-# Arash Zare AI Assistant (RAG System)
+# Arash Zare's RAG Assistant
+
+این پروژه مجموعه‌ای از پیاده‌سازی‌های Retrieval-Augmented Generation (RAG) است که به عنوان دستیار هوشمند برای پاسخگویی به سوالات درباره رزومه و سوابق کاری **آرش زارع** طراحی شده است.
+
+## پیش‌نیازها
+قبل از اجرا، مطمئن شوید که پایتون ۳.۹ یا بالاتر نصب دارید. سپس کتابخانه‌های مورد نیاز را نصب کنید:
+```bash
+pip install -r requirements.txt
+
+
+
 
 A Retrieval-Augmented Generation (RAG) system designed to provide accurate, context-aware answers about Arash Zare's professional background, skills, and projects using his resume and portfolio data.
 
