@@ -1,33 +1,31 @@
 # Arash Zare's RAG Assistant
 
-این پروژه مجموعه‌ای از پیاده‌سازی‌های Retrieval-Augmented Generation (RAG) است که به عنوان دستیار هوشمند برای پاسخگویی به سوالات درباره رزومه و سوابق کاری **آرش زارع** طراحی شده است.
+یک پروژه کاربردی و آموزشی برای پیاده‌سازی سیستم پرسش‌وپاسخ هوشمند درباره سوابق کاری و رزومه **آرش زارع** با استفاده از معماری **RAG (Retrieval-Augmented Generation)**.
 
-## پیش‌نیازها
-قبل از اجرا، مطمئن شوید که پایتون ۳.۹ یا بالاتر نصب دارید. سپس کتابخانه‌های مورد نیاز را نصب کنید:
-```bash
-pip install -r requirements.txt
+---
 
+## 📚 مفاهیم پایه: RAG چگونه کار می‌کند؟
 
+مدل‌های زبانی بزرگ (LLM) اطلاعات محلی یا خصوصی شما را نمی‌دانند. معماری RAG این مشکل را بدون نیاز به بازآموزی مدل (Fine-tuning) حل می‌کند:
 
-# Arash Zare AI Assistant (RAG System)
+1. **استخراج داده (Ingestion):** خواندن متن از سورس ورودی (متن ثابت یا فایل PDF).
+2. **قطعه‌بندی (Chunking):** تقسیم متن به تکه‌های کوچک‌تر همراه با هم‌پوشانی (Overlap) جهت حفظ پیوستگی معنایی.
+3. **بردارسازی (Embedding):** تبدیل تکه‌های متنی به بردار عددی معنادار.
+4. **ذخیره‌سازی (Vector Database):** ذخیره بردارها و متادیتا در دیتابیس `ChromaDB`.
+5. **بازیابی (Retrieval):** تبدیل سؤال کاربر به بردار و یافتن نزدیک‌ترین قطعات متنی به آن (Nearest Neighbors).
+6. **تولید پاسخ (Generation):** ارسال متن‌های بازیابی‌شده به‌عنوان Context همراه با پرامپت به مدل `gpt-4o`.
 
-A Retrieval-Augmented Generation (RAG) system designed to provide accurate, context-aware answers about Arash Zare's professional background, skills, and projects using his resume and portfolio data.
+---
 
-## Features
-- **Semantic Search:** Uses Vector Embeddings (ChromaDB) to understand the *meaning* behind questions, not just keywords.
-- **Context-Aware:** Limits AI hallucinations by forcing the model to answer based only on provided professional data.
-- **Modular Data Loading:** Easily switch between hardcoded documents, web scraping, or file-based ingestion.
-- **Tech Stack:** Python, OpenAI API (GPT-4o), ChromaDB.
+## 🗂 ساختار فایل‌های پروژه
 
-## Prerequisites
-- Python 3.9+
-- OpenAI API Key
-- `pip` installed
-
-## Installation
-
-1. **Clone the repository** (or create a project folder):
-```bash
-   mkdir arash-ai-assistant
-   cd arash-ai-assistant
-   
+این پروژه شامل **دو اسکریپت مجزا** برای نمایش مراحل یادگیری تا پیاده‌سازی عملیاتی است:
+```text
+.
+├── simple_RAG.py           # ۱. نسخه پایه با داده‌های متنی ثابت (Hard-coded)
+├── PDF_ingestion.py        # ۲. نسخه پیشرفته با قابلیت پردازش و ایندکس PDF
+├── Arash_Zare_resume3.pdf  # فایل رزومه ورودی
+├── requirements.txt        # کتابخانه‌های مورد نیاز
+├── .env                    # تنظیمات محیطی و کلید API
+├── .gitignore
+└── README.md
