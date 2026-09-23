@@ -9,6 +9,7 @@ pip install -r requirements.txt
 
 
 
+# Arash Zare AI Assistant (RAG System)
 
 A Retrieval-Augmented Generation (RAG) system designed to provide accurate, context-aware answers about Arash Zare's professional background, skills, and projects using his resume and portfolio data.
 
